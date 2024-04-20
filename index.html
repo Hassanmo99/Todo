@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+    /* .container{
+        height: 100vh;
+        
+        
+        align-items: center;
+        justify-content: center;
+        
+    } */
+    *{
+        padding: 0;
+        margin: 0;
+    }
+    .btn{
+        height: 40px;
+        width: 40px;
+        border-radius: 50px;
+        background-color: #FFC800;
+        font-size: 30px;
+    }
+    .input{
+        padding: 10px;
+        width: 60%;
+        background-color: black;
+        box-shadow: 1px 1px 11px 1px grey;
+        color: white;
+    }
+    .bigcontainer{
+        display: flex;  
+        background-color:black;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        flex-direction: column;
+        
+        
+
+    }
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60%;
+        position: relative;
+
+    }
+    
+    
+</style>
+<body>
+ <div class="bigcontainer">
+
+    <div class="container">
+    <input placeholder="New Task..." class="input" type="text">
+      <button class="btn"> + </button>
+
+    </div>
+  
+      
+    
+ </div>
+
+</body>
+</html>
+<script>
+    $(".btn").click(function(){
+    if($(".input").val() == ""){
+        alert("Please enter a string");
+
+    }
+    else{
+    console.log($(".input").val());
+    var myDiv=$("<div>"+ $(".input").val() +"<button class='btn2'>Delete </button></div>");
+    // var btn2=$("<button>Delete </button>" );
+    console.log(myDiv);
+    $(".bigcontainer").append(myDiv);
+    myDiv.attr("class" , "mydiv");
+        
+    console.log($(".btn2"));
+    
+
+    
+    $(".mydiv").css({
+        "background-color" : "grey" ,
+        width: "615px" ,
+        "margin-top": "10px",
+        display: "flex",
+        'justify-content' : 'space-between'
+
+    });
+
+    $(".input").val("");
+
+    //  $(".mydiv").append(btn2);
+    $(".btn2").css({
+        "color" : "red" ,
+        "background-color" : "black"
+
+    });
+    $(".btn2").click(function(){
+        $(this).closest("div").remove();
+    });
+
+}
+
+    });
+   
+
+</script>
